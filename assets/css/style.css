@@ -1,0 +1,15 @@
+.carousel-item img {
+    width:40rem;
+    height:40rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    margin-top: 0.5rem;
+
+}
+
+.carousel-caption{
+    bottom: 16rem;
+    right: 100em;
+    left: 0.8rem;
+}
+
