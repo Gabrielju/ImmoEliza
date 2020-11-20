@@ -1,0 +1,69 @@
+#cardMap{
+    padding-bottom: 50px;
+    padding-top: 50px;
+    text-align: center;
+    border: 1px solid black;
+}
+#cardInfos{
+    padding-bottom: 50px;
+    padding-top: 50px;
+    text-align: center;
+    border: 1px solid black;
+}
+#card3D{
+    padding-bottom: 50px;
+    padding-top: 50px;
+    text-align: center;
+    border: 1px solid black;
+}
+.container-fluid .row {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 3rem; }
+
+
+
+/*FOOTER*/
+
+footer{
+    padding: 1%;
+    background-color: rgb(58, 58, 58);
+}
+#rowFooter{
+    text-align: center;
+    color: white;
+}
+#logoFooter{
+    width: 30%;
+}
+/*SUBSCRIBE*/
+#formSubscribe {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+#btnSubscribe {
+    background-color: rgb(90, 141, 217);
+    border: gray solid 0px;
+    color: white;
+}
+/*PARAGRAPH 1/Contact*/
+.pContact{
+    font-size: 0.75rem;
+}
+/*PARAGRAPH 2/Central*/
+.pCentral{
+    font-size: 0.75rem;
+}
+/*HORIZONTAL LINE*/
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgb(122, 122, 122);
+}
+
+/*SOCIAL NETWORKS*/
+.socialNetworks{
+    
+    margin: auto;
