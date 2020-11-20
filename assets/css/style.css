@@ -67,3 +67,28 @@ hr {
 .socialNetworks{
     
     margin: auto;
+}
+#twitter{
+    color: gray;
+}
+#twitter:hover{
+    color: rgb(185, 185, 185);
+}
+#facebook{
+    color: gray;
+}
+#facebook:hover{
+    color: rgb(185, 185, 185);
+}
+#instagram{
+    color: gray;
+}
+#instagram:hover{
+    color: rgb(185, 185, 185);
+}
+#linkedin{
+    color: gray;
+}
+#linkedin:hover{
+    color: rgb(185, 185, 185);
+}
