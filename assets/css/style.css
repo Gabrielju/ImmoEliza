@@ -4,9 +4,9 @@
     padding-right: 0.5rem;
     padding-left: 0.5rem;
     margin-top: 0.5rem;
+    filter: blur(4px);
 
 }
-
 .carousel-caption  {
     bottom: 11.5rem;
     
