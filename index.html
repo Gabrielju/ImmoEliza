@@ -15,156 +15,157 @@
     <div class="container-fluid">
         <div class="row">
             <!-- form -->
-                <div class="modal" id="modalRegister">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-            
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Register</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-            
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="registerloaclity">Localité :</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Flandre Occ">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="registerspécification">Préférance :</label>
-                                        <input type="checkbox" id="house" name="maison" value="house">
-                                        <label for="house1"> maison</label>
-                                        <input type="checkbox" id="apartment" name="apartement" value="apart">
-                                        <label for="house2"> apartement</label>
-                                        <!--<label for="registertype">type de propriété</label>
+            <div class="modal" id="modalRegister">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Register</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="registerloaclity">Localité :</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                                        placeholder="Flandre Occ">
+                                </div>
+                                <div class="form-group">
+                                    <label for="registerspécification">Préférance :</label>
+                                    <input type="checkbox" id="house" name="maison" value="house">
+                                    <label for="house1"> maison</label>
+                                    <input type="checkbox" id="apartment" name="apartement" value="apart">
+                                    <label for="house2"> apartement</label>
+                                    <!--<label for="registertype">type de propriété</label>
                                         <select class="form-control" id="registertype" placeholder="Maison">
                                             <option>Maison</option>
                                             <option>apartement</option>
                                           </select>-->
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="Form_sous_type">Sous type de propriété</label>
-                                        <select class="form-control" id="Form_sous_type_m" placeholder="Maison">
-                                            <option>bastide</option>
-                                            <option>bungalow</option>
-                                            <option>chalet</option>
-                                            <option>château</option>
-                                            <option>hôtel particulier</option>
-                                            <option>immeuble mixte</option>
-                                            <option>maison</option>
-                                            <option>maison de ville</option>
-                                            <option>manoir</option>
-                                            <option>mas</option>
-                                            <option>pavillon</option>
-                                            <option>pavillon</option>
-                                            <option>propriété d'exception</option>
-                                            <option>résidence</option>
-                                            <option>villa</option>
-                                            <option>autre bien</option>
-                                        </select>
-                                        <select class="form-control" id="Form_sous_type_a" placeholder="apartement">
-                                            <option>appartement</option>
-                                            <option>appartement studio</option>
-                                            <option>appartement de service/location meublé</option>
-                                            <option>atique</option>
-                                            <option>duplex</option>
-                                            <option>kot</option>
-                                            <option>loft</option>
-                                            <option>rez-de-chaussée</option>
-                                            <option>triplex</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="n_pièce">Nombre de pièces</label>
-                                        <select class="form-control" id="form_pièce" placeholder="">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                            <option>plus</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="surface_maison_m2">surface Maison m2 :</label>
-                                        <input type="number" id="sm2" name="sm2" min="30" max="500">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput1">cuisine équipé</label>
-                                        <input type="checkbox" id="cuisine_yes" name="cuisine_yes" value="cuisine_yes">
-                                            <label for="cuisine1"> oui</label>
-                                        <input type="checkbox" id="cuisine_no" name="cuisine_no" value="cuisine_no">
-                                            <label for="cuisine2"> non</label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput1">Cheminée</label>
-                                        <input type="checkbox" id="cheminée_yes" name="cheminée_yes" value="cheminée_yes">
-                                            <label for="cheminée1"> oui</label>
-                                        <input type="checkbox" id="cheminée_no" name="cheminée_no" value="cheminée_no">
-                                            <label for="cheminée2"> non</label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput1">Terasse</label>
-                                        <input type="checkbox" id="terasse_yes" name="terasse_yes" value="terasse_yes">
-                                            <label for="terasse1"> oui</label>
-                                        <input type="checkbox" id="terasse_no" name="terasse_no" value="terasse_no">
-                                            <label for="terasse2"> non</label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput1">Terrasse surface m2 :</label>
-                                        <input type="number" id="quantity" name="quantity" min="30" max="500">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput1">surface Terrain m2 :</label>
-                                        <input type="number" id="quantity" name="quantity" min="30" max="500">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Nombre de facades :</label>
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Form_sous_type">Sous type de propriété</label>
+                                    <select class="form-control" id="Form_sous_type_m" placeholder="Maison">
+                                        <option>bastide</option>
+                                        <option>bungalow</option>
+                                        <option>chalet</option>
+                                        <option>château</option>
+                                        <option>hôtel particulier</option>
+                                        <option>immeuble mixte</option>
+                                        <option>maison</option>
+                                        <option>maison de ville</option>
+                                        <option>manoir</option>
+                                        <option>mas</option>
+                                        <option>pavillon</option>
+                                        <option>pavillon</option>
+                                        <option>propriété d'exception</option>
+                                        <option>résidence</option>
+                                        <option>villa</option>
+                                        <option>autre bien</option>
+                                    </select>
+                                    <select class="form-control" id="Form_sous_type_a" placeholder="apartement">
+                                        <option>appartement</option>
+                                        <option>appartement studio</option>
+                                        <option>appartement de service/location meublé</option>
+                                        <option>atique</option>
+                                        <option>duplex</option>
+                                        <option>kot</option>
+                                        <option>loft</option>
+                                        <option>rez-de-chaussée</option>
+                                        <option>triplex</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="n_pièce">Nombre de pièces</label>
+                                    <select class="form-control" id="form_pièce" placeholder="">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>plus</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="surface_maison_m2">surface Maison m2 :</label>
+                                    <input type="number" id="sm2" name="sm2" min="30" max="500">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">cuisine équipé</label>
+                                    <input type="checkbox" id="cuisine_yes" name="cuisine_yes" value="cuisine_yes">
+                                    <label for="cuisine1"> oui</label>
+                                    <input type="checkbox" id="cuisine_no" name="cuisine_no" value="cuisine_no">
+                                    <label for="cuisine2"> non</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Cheminée</label>
+                                    <input type="checkbox" id="cheminée_yes" name="cheminée_yes" value="cheminée_yes">
+                                    <label for="cheminée1"> oui</label>
+                                    <input type="checkbox" id="cheminée_no" name="cheminée_no" value="cheminée_no">
+                                    <label for="cheminée2"> non</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Terasse</label>
+                                    <input type="checkbox" id="terasse_yes" name="terasse_yes" value="terasse_yes">
+                                    <label for="terasse1"> oui</label>
+                                    <input type="checkbox" id="terasse_no" name="terasse_no" value="terasse_no">
+                                    <label for="terasse2"> non</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Terrasse surface m2 :</label>
+                                    <input type="number" id="quantity" name="quantity" min="30" max="500">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">surface Terrain m2 :</label>
+                                    <input type="number" id="quantity" name="quantity" min="30" max="500">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Nombre de facades :</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label for="exampleFormControlInput1">Piscine</label>
                                     <input type="checkbox" id="piscine_yes" name="piscine_yes" value="piscine_yes">
-                                        <label for="house1"> oui</label>
+                                    <label for="house1"> oui</label>
                                     <input type="checkbox" id="piscine_no" name="piscine_no" value="piscine_no">
-                                        <label for="house2"> non</label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Stade de construction :</label>
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                            <option>à aménager</option>
-                                            <option>comme neuf</option>
-                                            <option>bon</option>
-                                            <option>à rénover</option>
-                                            <option>juste rénové</option>
-                                            <option>à restaurer</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="RegisterTOS">
-                                        <label class="form-check-label" for="RegisterTOS">Terms of Service</label>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary" onclick="register()">Register</button>
-                                </form>
-                            </div>
-            
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-            
-            
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            </div>
-            
+                                    <label for="house2"> non</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Stade de construction :</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>à aménager</option>
+                                        <option>comme neuf</option>
+                                        <option>bon</option>
+                                        <option>à rénover</option>
+                                        <option>juste rénové</option>
+                                        <option>à restaurer</option>
+                                    </select>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="RegisterTOS">
+                                    <label class="form-check-label" for="RegisterTOS">Terms of Service</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary" onclick="register()">Register</button>
+                            </form>
                         </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+
+
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+
                     </div>
                 </div>
+            </div>
             <!-- LOCATION GOOGLE MAP -->
             <div class="col-12 col-sm-12 col-lg-6 mb-6" id="cardMap">
                 MAP
