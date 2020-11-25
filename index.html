@@ -11,11 +11,13 @@
 </head>
 
 <body>
+    <!-- NAVBAR -->
     <nav class="navbar navbar-light" id="navbar">
         <a class="navbar-brand" href="#">
             <img src="assets/images/logo2.png" width="30%" class="d-inline-block align-top" alt="">
         </a>
     </nav>
+    <!-- CAROUSEL -->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -50,14 +52,7 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-
-
-
-
-
-
-
-
+    <!-- PROJECT -->
     </div>
     <div class="col-12 col-sm-12 col-lg-12 mb-12" id="project">
         <p class="looking">Looking for a project?</p>
@@ -180,7 +175,7 @@
                     <form action="cats.php" method="POST">
                         <div class="form-group">
                             <label for="registerloaclity">Address :</label>
-                            <input type="text" class="form-control" id="address" name="address" placeholder="Adress">
+                            <input type="text" class="form-control" id="address" name="address" placeholder="Address">
                         </div>
                         <div class="form-group">
                             <label for="registerloaclity">Postalcode :</label>
@@ -212,23 +207,23 @@
                             <div class="form-group">
                                 <!-- maison/appartement -->
                                 <label for="registerspécification">Type :</label>
-                                <input type="checkbox" name="maison" value="house">
+                                <input type="checkbox" name="building" value="house">
                                 <label for="house1"> maison</label>
-                                <input type="checkbox" name="apartement" value="apartment">
+                                <input type="checkbox" name="building" value="apartment">
                                 <label for="house2"> apartement</label>
                             </div>
                             <!-- surface maison -->
                             <label for="registerloaclity">House area :</label>
-                            <input type="number" class="form-control" name="houseArea" placeholder="House area">
+                            <input type="number" class="form-control" name="house_area" placeholder="House area">
                             <!-- surface terrain -->
                             <label for="registerloaclity">Land area :</label>
-                            <input type="number" class="form-control" name="landArea" placeholder="Land area">
+                            <input type="number" class="form-control" name="surf_land" placeholder="Land area">
                             <!-- facades -->
                             <label for="registerloaclity">Number of facades :</label>
-                            <input type="number" class="form-control" name="facades" placeholder="Number facades">
+                            <input type="number" class="form-control" name="numb_facades" placeholder="Number facades">
                             <!-- pieces -->
                             <label for="registerloaclity">Number of rooms :</label>
-                            <input type="number" class="form-control" name="rooms" placeholder="Number rooms">
+                            <input type="number" class="form-control" name="numb_rooms" placeholder="Number rooms">
                             <!-- jardin -->
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Garden : </label>
@@ -247,13 +242,13 @@
                             </div>
                             <!-- surface terrace -->
                             <label for="registerloaclity">Terrace area :</label>
-                            <input type="number" class="form-control" name="terraceArea" placeholder="terrace area">
+                            <input type="number" class="form-control" name="terrace_area" placeholder="terrace area">
                             <!-- cuisine -->
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Kitchen : </label>
-                                <input type="checkbox" name="kitchen" value="1">
+                                <input type="checkbox" name="equip_kitch" value="1">
                                 <label for="kitchen1"> oui</label>
-                                <input type="checkbox" name="kitchen" value="0">
+                                <input type="checkbox" name="equip_kitch" value="0">
                                 <label for="kitchen2"> non</label>
                             </div>
                             <!-- fire -->
@@ -275,49 +270,49 @@
                             <!-- sas new -->
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Sas new : </label>
-                                <input type="checkbox" name="pool_yes" value="1">
+                                <input type="checkbox" name="Sas_new" value="1">
                                 <label for="pool1"> oui</label>
-                                <input type="checkbox" name="pool_no" value="0">
+                                <input type="checkbox" name="Sas_new" value="0">
                                 <label for="pool2"> non</label>
                             </div>
                             <!-- Sjust renov -->
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Sjust renov : </label>
-                                <input type="checkbox" name="pool_yes" value="1">
+                                <input type="checkbox" name="Sjust_renov" value="1">
                                 <label for="pool1"> oui</label>
-                                <input type="checkbox" name="pool_no" value="0">
+                                <input type="checkbox" name="Sjust_renov" value="0">
                                 <label for="pool2"> non</label>
                             </div>
                             <!-- Sgood -->
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Sgood : </label>
-                                <input type="checkbox" name="pool_yes" value="1">
+                                <input type="checkbox" name="Sgood" value="1">
                                 <label for="pool1"> oui</label>
-                                <input type="checkbox" name="pool_no" value="0">
+                                <input type="checkbox" name="Sgood" value="0">
                                 <label for="pool2"> non</label>
                             </div>
                             <!-- Sto_refresh -->
                             <div class="form-group">
-                                <label for="exampleFormControlInput1">Sjust renov : </label>
-                                <input type="checkbox" name="pool_yes" value="1">
+                                <label for="exampleFormControlInput1">Sto_refresh : </label>
+                                <input type="checkbox" name="Sto_refresh" value="1">
                                 <label for="pool1"> oui</label>
-                                <input type="checkbox" name="pool_no" value="0">
+                                <input type="checkbox" name="Sto_refresh" value="0">
                                 <label for="pool2"> non</label>
                             </div>
                             <!-- Sto_renov -->
                             <div class="form-group">
-                                <label for="exampleFormControlInput1">Sjust renov : </label>
-                                <input type="checkbox" name="pool_yes" value="1">
+                                <label for="exampleFormControlInput1">Sto_renov : </label>
+                                <input type="checkbox" name="Sto_renov" value="1">
                                 <label for="pool1"> oui</label>
-                                <input type="checkbox" name="pool_no" value="0">
+                                <input type="checkbox" name="Sto_renov" value="0">
                                 <label for="pool2"> non</label>
                             </div>
                             <!-- Sto_restor -->
                             <div class="form-group">
-                                <label for="exampleFormControlInput1">Sjust renov : </label>
-                                <input type="checkbox" name="pool_yes" value="1">
+                                <label for="exampleFormControlInput1">Sto_restor : </label>
+                                <input type="checkbox" name="Sto_restor" value="1">
                                 <label for="pool1"> oui</label>
-                                <input type="checkbox" name="pool_no" value="0">
+                                <input type="checkbox" name="Sto_restor" value="0">
                                 <label for="pool2"> non</label>
                             </div>
                             <button type="submit" class="btn btn-primary" onclick="submitStep2()">submit</button>
