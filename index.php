@@ -1,6 +1,7 @@
-<?php 
+<?php
+$result_decode;
 if ((!isset($_POST['building'])) || (!isset($_POST['house_area']))) {
-    echo "Le formulaire n'a pas encore été exécuté";
+    //echo "Le formulaire n'a pas encore été exécuté";
 } else {
     //echo "Le formulaire a été exécuté";
 
@@ -165,6 +166,12 @@ curl_close($ch);
             </div>
             <div class="col-12 col-sm-12 col-lg-6 mb-6" style="padding-bottom:50px; padding-top:50px; text-align: center;">
                 <p>Postalcode : <?php echo($_POST["postalcode"]) ?></p>
+
+
+
+
+
+
             </div>
         </div>
     </div>
