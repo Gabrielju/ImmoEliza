@@ -156,7 +156,7 @@ curl_close($ch);
         <div class="row">
             <!-- LOCATION GOOGLE MAP -->
             <div class="col-12 col-sm-12 col-lg-6 mb-6" id="cardMap">
-                MAP
+                MAPehkdjnlqjlqejnejnlrjni
             </div>
             <!-- SPACE -->
             <div class="col-lg-2 mb-2">
