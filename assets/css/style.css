@@ -61,28 +61,11 @@
     background-color: white;
 }
 /*CORP*/
-#cardMap{
-    padding-bottom: 50px;
+#cadre{
     padding-top: 50px;
-    text-align: center;
-    border: 1px solid black;
-    box-shadow: 1px 1px 3px 0px #aaaaaa;
-}
-#cardInfos{
     padding-bottom: 50px;
-    padding-top: 50px;
     text-align: center;
-    border: 1px solid black;
-    box-shadow: 1px 1px 3px 0px #aaaaaa;
 }
-#card3D{
-    padding-bottom: 50px;
-    padding-top: 50px;
-    text-align: center;
-    border: 1px solid black;
-    box-shadow: 1px 1px 3px 0px #aaaaaa;
-}
-
 /*FOOTER*/
 footer{
     padding: 1%;
