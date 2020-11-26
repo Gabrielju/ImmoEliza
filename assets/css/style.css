@@ -1,30 +1,89 @@
+/* NAVBAR */
+#navbar{
+    background-color: rgb(58, 58, 58);
+}
+/* CAROUSEL */
+#bordure{
+    margin: 0%;
+    padding: 0%;
+}
+.carousel-item img {
+    
+    height:525px;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    margin-top: 0.5rem;
+    filter: blur(10px);
+}
+.carousel-caption  {
+    bottom: 11.5rem;
+    
+}
+/* BANDEAU PROJECT */
+#project{
+    padding-top: 0.3rem;
+    padding-bottom: 0.2rem;
+    background: rgb(90, 141, 217);
+}
+.looking{
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+}
+.button{
+    text-align: center;
+}
+.search{
+    border: solid 2px white;
+    border-radius: 20px;
+    color: rgb(49, 110, 201);
+    font-size: 20px;
+    background-color: white;
+    font-weight: bold;
+    padding-right: 14.35px;
+    padding-left: 14.35px;
+}
+.evaluate{
+    border: solid 2px white;
+    border-radius: 20px;
+    color: rgb(49, 110, 201);
+    font-size: 20px;
+    background-color: white;
+    font-weight: bold;
+}
+#evaluate:hover{
+    border: solid 2px #aaaaaa;
+    border-radius: 20px;
+    color: rgb(90, 141, 217);
+    margin: auto;
+    font-size: 20px;
+    background-color: white;
+}
+/*CORP*/
 #cardMap{
     padding-bottom: 50px;
     padding-top: 50px;
     text-align: center;
     border: 1px solid black;
+    box-shadow: 1px 1px 3px 0px #aaaaaa;
 }
 #cardInfos{
     padding-bottom: 50px;
     padding-top: 50px;
     text-align: center;
     border: 1px solid black;
+    box-shadow: 1px 1px 3px 0px #aaaaaa;
 }
 #card3D{
     padding-bottom: 50px;
     padding-top: 50px;
     text-align: center;
     border: 1px solid black;
+    box-shadow: 1px 1px 3px 0px #aaaaaa;
 }
-.container-fluid .row {
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 3rem; }
-
-
 
 /*FOOTER*/
-
 footer{
     padding: 1%;
     background-color: rgb(58, 58, 58);
@@ -67,6 +126,7 @@ hr {
 .socialNetworks{
     
     margin: auto;
+
 }
 #twitter{
     color: gray;
