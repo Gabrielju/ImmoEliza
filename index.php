@@ -1,3 +1,93 @@
+<?php 
+if ((!isset($_POST['building'])) || (!isset($_POST['house_area']))) {
+    echo "Le formulaire n'a pas encore été exécuté";
+} else {
+    //echo "Le formulaire a été exécuté";
+
+    //Etape 1 sanétisation
+    $address = filter_var($_POST["address"], FILTER_SANITIZE_STRING);
+    $postalcode = filter_var($_POST["postalcode"], FILTER_SANITIZE_STRING);
+    $house_area = filter_var($_POST["house_area"], FILTER_SANITIZE_STRING);
+    $surf_land = filter_var($_POST["surf_land"], FILTER_SANITIZE_STRING);
+    $numb_facades = filter_var($_POST["numb_facades"], FILTER_SANITIZE_STRING);
+    $numb_rooms = filter_var($_POST["numb_rooms"], FILTER_SANITIZE_STRING);
+    $terrace_area = filter_var($_POST["terrace_area"], FILTER_SANITIZE_STRING);
+    $building = $_POST['building'];
+    $garden = $_POST['garden'];
+    $equip_kitch = $_POST['equip_kitch'];
+    $fire = $_POST['fire'];
+    $pool = $_POST['pool'];
+    $Sas_new = $_POST['Sas_new'];
+    $Sjust_renov = $_POST['Sjust_renov'];
+    $Sgood = $_POST['Sgood'];
+    $Sto_refresh = $_POST['Sto_refresh'];
+    $Sto_renov = $_POST['Sto_renov'];
+    $Sto_restor = $_POST['Sto_restor'];
+    $terrace = $_POST['terrace'];
+
+    //echo "checkbox building value : ".$_POST['building'];
+
+    //Etape 2 validation
+
+    //Etape 3 exécution
+    //echo $building;
+    //API REQUEST
+    $array_data_to_post = [
+        //"address" => $address,
+        "building" => $building,
+        "postalcode" => filter_var($_POST["postalcode"], FILTER_VALIDATE_INT),
+        "house_area" => filter_var($_POST["house_area"], FILTER_VALIDATE_INT),
+        "surf_land" => filter_var($_POST["surf_land"], FILTER_VALIDATE_INT),
+        "numb_facades" => filter_var($_POST["numb_facades"], FILTER_VALIDATE_INT),
+        "numb_rooms" => filter_var($_POST["numb_rooms"], FILTER_VALIDATE_INT),
+        "garden" => filter_var($_POST["garden"], FILTER_VALIDATE_INT),
+        "terrace" => filter_var($_POST["terrace"], FILTER_VALIDATE_INT),
+        "terrace_area" => filter_var($_POST["terrace_area"], FILTER_VALIDATE_INT),
+        "equip_kitch" => filter_var($_POST["equip_kitch"], FILTER_VALIDATE_INT),
+        "fire" => filter_var($_POST["fire"], FILTER_VALIDATE_INT),
+        "pool" => filter_var($_POST["pool"], FILTER_VALIDATE_INT),
+        "Sas_new" => filter_var($_POST["Sas_new"], FILTER_VALIDATE_INT),
+        "Sjust_renov" => filter_var($_POST["Sjust_renov"], FILTER_VALIDATE_INT),
+        "Sgood" => filter_var($_POST["Sgood"], FILTER_VALIDATE_INT),
+        "Sto_refresh" => filter_var($_POST["Sto_refresh"], FILTER_VALIDATE_INT),
+        "Sto_renov" => filter_var($_POST["Sto_renov"], FILTER_VALIDATE_INT),
+        "Sto_restor" => filter_var($_POST["Sto_restor"], FILTER_VALIDATE_INT),
+    ];
+    //echo print_r($array_data_to_post);
+    
+    $array_data_to_post_JSON = json_encode($array_data_to_post);
+    /*echo "<PRE>";
+    echo ($array_data_to_post_JSON);
+    echo "</PRE>";*/
+
+    //API REQUEST
+    //API Url
+
+$url = 'http://jcmhouse3d.azurewebsites.net/estimate';
+$ch = curl_init($url);
+//Encode the array into JSON.
+//$jsonDataEncoded = json_encode($jsonData);
+ 
+//Tell cURL that we want to send a POST request.
+curl_setopt($ch, CURLOPT_POST, 1);
+ 
+//Attach our encoded JSON string to the POST fields.
+curl_setopt($ch, CURLOPT_POSTFIELDS, $array_data_to_post_JSON);
+ 
+//Set the content type to application/json
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
+ 
+//Execute the request
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$result_JSON = curl_exec($ch);
+$result_decode = json_decode($result_JSON, true);
+
+//print_r($result_decode);
+//echo $result_decode['estimated_price'];
+
+curl_close($ch);
+};?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -11,6 +101,7 @@
 </head>
 
 <body>
+
     <!-- NAVBAR -->
     <nav class="navbar navbar-light" id="navbar">
         <a class="navbar-brand" href="#">
@@ -57,7 +148,7 @@
     <div class="col-12 col-sm-12 col-lg-12 mb-12" id="project">
         <p class="looking">Looking for a project?</p>
         <p class="button">
-            <button class="search" data-toggle="modal" data-target="#step1">Search</button>
+            <!--<button class="search" data-toggle="modal" data-target="#step1">Search</button>-->
             <button class="evaluate" data-toggle="modal" data-target="#step2">Evaluate</button>
         </p>
     </div>
@@ -73,7 +164,11 @@
             </div>
             <!-- LOCATION INFOS -->
             <div class="col-12 col-sm-12 col-lg-4 mb-4" id="cardInfos">
-                INFOS
+                Price estimate :  <?php 
+                $fmt = new NumberFormatter( 'de_DE', NumberFormatter::CURRENCY );
+                echo $fmt->formatCurrency($result_decode['estimated_price'], "EUR");
+                //echo $fmt-> $result_decode['estimated_price'];
+                ?>
             </div>
         </div>
         <div class="row">
@@ -160,34 +255,6 @@
             </div>
         </div>
     </footer>
-    <!-- STEP 1 -->
-    <div class="modal" id="step1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Step 1</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <form action="cats.php" method="POST">
-                        <div class="form-group">
-                            <label for="registerloaclity">Address :</label>
-                            <input type="text" class="form-control" id="address" name="address" placeholder="Address">
-                        </div>
-                        <div class="form-group">
-                            <label for="registerloaclity">Postalcode :</label>
-                            <input type="text" class="form-control" id="postalcode" name="postalcode"
-                                placeholder="Postalcode">
-                        </div>
-                        <button type="submit" class="btn btn-primary" onclick="submitStep1()">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- STEP 2 -->
     <div class="modal" id="step2">
         <div class="modal-dialog">
@@ -201,121 +268,130 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <form action="cats.php" method="POST">
+                    <form action="index.php" method="post">
 
-                        <div class="form-group">
+                            <div class="form-group">
+                            <div class="form-group">
+                                <label for="registerloaclity">Address :</label>
+                                <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+                            </div>
+                            <div class="form-group">
+                                <label for="registerloaclity">Postalcode :</label>
+                                <input type="text" class="form-control" id="postalcode" name="postalcode"
+                                placeholder="Postalcode" value="6000" required>
+                            </div>
                             <div class="form-group">
                                 <!-- maison/appartement -->
                                 <label for="registerspécification">Type :</label>
-                                <input type="checkbox" name="building" value="house">
-                                <label for="house1"> maison</label>
-                                <input type="checkbox" name="building" value="apartment">
+                                <input type="radio" name="building" value="house" checked="checked" required>
+                                <label for="house1"> house</label>
+                                <input type="radio" name="building" value="apartment">
                                 <label for="house2"> apartement</label>
                             </div>
                             <!-- surface maison -->
                             <label for="registerloaclity">House area :</label>
-                            <input type="number" class="form-control" name="house_area" placeholder="House area">
+                            <input type="number" class="form-control" name="house_area" placeholder="House area" value="250" required>
                             <!-- surface terrain -->
                             <label for="registerloaclity">Land area :</label>
-                            <input type="number" class="form-control" name="surf_land" placeholder="Land area">
+                            <input type="number" class="form-control" name="surf_land" placeholder="Land area" value="19700" required>
                             <!-- facades -->
                             <label for="registerloaclity">Number of facades :</label>
-                            <input type="number" class="form-control" name="numb_facades" placeholder="Number facades">
+                            <input type="number" class="form-control" name="numb_facades" placeholder="Number facades" value="4" required>
                             <!-- pieces -->
                             <label for="registerloaclity">Number of rooms :</label>
-                            <input type="number" class="form-control" name="numb_rooms" placeholder="Number rooms">
+                            <input type="number" class="form-control" name="numb_rooms" placeholder="Number rooms" value="3" required>
                             <!-- jardin -->
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Garden : </label>
-                                <input type="checkbox" name="garden" value="1">
+                                <input type="radio" name="garden" value="1" checked="checked" required>
                                 <label for="garden1"> oui</label>
-                                <input type="checkbox" name="garden" value="0">
+                                <input type="radio" name="garden" value="0">
                                 <label for="garden2"> non</label>
                             </div>
                             <!-- terrace -->
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Terrace : </label>
-                                <input type="checkbox" name="terrace" value="1">
+                                <input type="radio" name="terrace" value="1" checked="checked" required>
                                 <label for="terrace1"> oui</label>
-                                <input type="checkbox" name="terrace" value="0">
+                                <input type="radio" name="terrace" value="0">
                                 <label for="terrace2"> non</label>
                             </div>
                             <!-- surface terrace -->
                             <label for="registerloaclity">Terrace area :</label>
-                            <input type="number" class="form-control" name="terrace_area" placeholder="terrace area">
+                            <input type="number" class="form-control" name="terrace_area" placeholder="terrace area" value="30" required>
                             <!-- cuisine -->
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Kitchen : </label>
-                                <input type="checkbox" name="equip_kitch" value="1">
+                                <input type="radio" name="equip_kitch" value="1" checked="checked" required>
                                 <label for="kitchen1"> oui</label>
-                                <input type="checkbox" name="equip_kitch" value="0">
+                                <input type="radio" name="equip_kitch" value="0">
                                 <label for="kitchen2"> non</label>
                             </div>
                             <!-- fire -->
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Fire : </label>
-                                <input type="checkbox" name="fire" value="1">
+                                <input type="radio" name="fire" value="1" required>
                                 <label for="fire1"> oui</label>
-                                <input type="checkbox" name="fire" value="0">
+                                <input type="radio" name="fire" value="0" checked="checked">
                                 <label for="fire2"> non</label>
                             </div>
                             <!-- piscine -->
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Pool : </label>
-                                <input type="checkbox" name="pool" value="1">
+                                <input type="radio" name="pool" value="1" required>
                                 <label for="pool1"> oui</label>
-                                <input type="checkbox" name="pool" value="0">
+                                <input type="radio" name="pool" value="0" checked="checked">
                                 <label for="pool2"> non</label>
                             </div>
                             <!-- sas new -->
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Sas new : </label>
-                                <input type="checkbox" name="Sas_new" value="1">
+                                <input type="radio" name="Sas_new" value="1" required>
                                 <label for="pool1"> oui</label>
-                                <input type="checkbox" name="Sas_new" value="0">
+                                <input type="radio" name="Sas_new" value="0" checked="checked">
                                 <label for="pool2"> non</label>
                             </div>
                             <!-- Sjust renov -->
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Sjust renov : </label>
-                                <input type="checkbox" name="Sjust_renov" value="1">
+                                <input type="radio" name="Sjust_renov" value="1" required>
                                 <label for="pool1"> oui</label>
-                                <input type="checkbox" name="Sjust_renov" value="0">
+                                <input type="radio" name="Sjust_renov" value="0" checked="checked">
                                 <label for="pool2"> non</label>
                             </div>
                             <!-- Sgood -->
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Sgood : </label>
-                                <input type="checkbox" name="Sgood" value="1">
+                                <input type="radio" name="Sgood" value="1" required>
                                 <label for="pool1"> oui</label>
-                                <input type="checkbox" name="Sgood" value="0">
+                                <input type="radio" name="Sgood" value="0" checked="checked">
                                 <label for="pool2"> non</label>
                             </div>
                             <!-- Sto_refresh -->
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Sto_refresh : </label>
-                                <input type="checkbox" name="Sto_refresh" value="1">
+                                <input type="radio" name="Sto_refresh" value="1" required>
                                 <label for="pool1"> oui</label>
-                                <input type="checkbox" name="Sto_refresh" value="0">
+                                <input type="radio" name="Sto_refresh" value="0" checked="checked">
                                 <label for="pool2"> non</label>
                             </div>
                             <!-- Sto_renov -->
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Sto_renov : </label>
-                                <input type="checkbox" name="Sto_renov" value="1">
+                                <input type="radio" name="Sto_renov" value="1" checked="checked" required>
                                 <label for="pool1"> oui</label>
-                                <input type="checkbox" name="Sto_renov" value="0">
+                                <input type="radio" name="Sto_renov" value="0">
                                 <label for="pool2"> non</label>
                             </div>
                             <!-- Sto_restor -->
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Sto_restor : </label>
-                                <input type="checkbox" name="Sto_restor" value="1">
+                                <input type="radio" name="Sto_restor" value="1" required>
                                 <label for="pool1"> oui</label>
-                                <input type="checkbox" name="Sto_restor" value="0">
+                                <input type="radio" name="Sto_restor" value="0" checked="checked">
                                 <label for="pool2"> non</label>
                             </div>
-                            <button type="submit" class="btn btn-primary" onclick="submitStep2()">submit</button>
+                            <input type="submit" class="btn btn-primary" value="submit">
                     </form>
                 </div>
             </div>
