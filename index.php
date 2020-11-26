@@ -94,6 +94,7 @@ curl_close($ch);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -154,27 +155,16 @@ curl_close($ch);
     </div>
     <div class="container-fluid">
         <div class="row">
-            <!-- LOCATION GOOGLE MAP -->
-            <div class="col-12 col-sm-12 col-lg-6 mb-6" id="cardMap">
-                MAP
-            </div>
-            <!-- SPACE -->
-            <div class="col-lg-2 mb-2">
-
-            </div>
             <!-- LOCATION INFOS -->
-            <div class="col-12 col-sm-12 col-lg-4 mb-4" id="cardInfos">
+            <div class="col-12 col-sm-12 col-lg-6 mb-6" style="padding-bottom:50px; padding-top:50px; text-align: center;">
                 Price estimate :  <?php 
                 $fmt = new NumberFormatter( 'de_DE', NumberFormatter::CURRENCY );
                 echo $fmt->formatCurrency($result_decode['estimated_price'], "EUR");
                 //echo $fmt-> $result_decode['estimated_price'];
                 ?>
             </div>
-        </div>
-        <div class="row">
-            <!-- LOCATION 3D HOUSE -->
-            <div class="col-12 col-sm-12 col-lg-12 mb-12" id="card3D">
-                3D
+            <div class="col-12 col-sm-12 col-lg-6 mb-6" style="padding-bottom:50px; padding-top:50px; text-align: center;">
+                <p>Postalcode : <?php echo($_POST["postalcode"]) ?></p>
             </div>
         </div>
     </div>
